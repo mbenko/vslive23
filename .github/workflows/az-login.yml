@@ -1,0 +1,30 @@
+name: 'az-login'
+run-name: az-login - ${{inputs.secret-name}} 
+on:
+  workflow_dispatch:
+    inputs:
+      secret-name:
+        description: 'The name of the secret to use'
+        required: true
+        
+jobs:
+  az-cli:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print Env
+      run: echo 'Secret Name:' ${{inputs.secret-name}}
+        
+    # Setup auth credentials
+    - uses: azure/login@v1
+      name: az login
+      with:
+        creds: ${{ secrets[inputs.secret-name] }}    
+
+    - name: Set env
+      uses: Azure/cli@v1
+      with:
+        inlineScript: | 
+          az account show --query="user.name" -o tsv
+          az account show
+          az group list -o table
