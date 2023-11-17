@@ -40,6 +40,13 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - myDadApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <span class="d-none d-md-inline">
+                | <b>Build:</b>  #{RUN_NUMBER}#
+                | <b>Branch:</b> #{BRANCH_NAME}#
+                | <b>Machine:</b> @System.Environment.MachineName
+                | <b>OS:</b> @System.Environment.OSVersion
+                | <b>Framework:</b> @System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription
+            </span>
         </div>
     </footer>
 

@@ -3,7 +3,7 @@ on:
   push:
     branches:
     - main
-env:
+env:    
   AZURE_WEBAPP_NAME: vslive23-dev-web
   AZURE_WEBAPP_PACKAGE_PATH: myDadApp\published
   CONFIGURATION: Release
@@ -23,6 +23,19 @@ jobs:
 
     - name: Restore
       run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
+
+    # MB: add tokenization to set env variables in code ${RUN_NUMBER}# and ${BRANCH_NAME}#
+    - name: Set Run Number with Date
+      run: |
+        $branch_name = "${{ github.ref }}".Split("/")[-1]
+        echo "BRANCH_NAME=$branch_name" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+        echo "RUN_NUMBER=$(Get-Date -Format 'yyyyMMdd')-${{ github.run_number }}" | Out-File -FilePath $env:GITHUB_ENV -Append
+        echo "Run: $RUN_NUMBER - Branch $BRANCH_NAME"
+    - name: Replace tokens
+      uses: cschleiden/replace-tokens@v1.0
+      with:
+        files: '["**/*.cshtml"]' 
+
 
     - name: Build
       run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
