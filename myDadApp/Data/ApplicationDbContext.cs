@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using myDadApp.Models;
 
 namespace myDadApp.Data
 {
@@ -9,5 +10,6 @@ namespace myDadApp.Data
             : base(options)
         {
         }
+        public DbSet<myDadApp.Models.Upload> Upload { get; set; } = default!;
     }
 }

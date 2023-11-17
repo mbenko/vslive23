@@ -3,3 +3,5 @@ obj
 .vs
 *.suo
 *.user
+*.terraform*
+*.tfstate*
