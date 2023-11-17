@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myDadApp", "myDadApp\myDadApp.csproj", "{CAB6072D-AE22-4F41-9322-59C4880305E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myDadApp", "myDadApp\myDadApp.csproj", "{CAB6072D-AE22-4F41-9322-59C4880305E5}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "VSWebSQL", "infra\VSWebSQL\VSWebSQL.deployproj", "{B0611A27-AB76-4BF5-ABBF-06E6E5706EFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{CAB6072D-AE22-4F41-9322-59C4880305E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAB6072D-AE22-4F41-9322-59C4880305E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAB6072D-AE22-4F41-9322-59C4880305E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0611A27-AB76-4BF5-ABBF-06E6E5706EFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0611A27-AB76-4BF5-ABBF-06E6E5706EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0611A27-AB76-4BF5-ABBF-06E6E5706EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0611A27-AB76-4BF5-ABBF-06E6E5706EFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAF84B27-8358-48C6-9133-96D54B4F1066}
 	EndGlobalSection
 EndGlobal
